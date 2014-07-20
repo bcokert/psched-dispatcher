@@ -17,8 +17,10 @@ This could be scaled further by having multiple buffers of different lengths, an
 
 ## Backend Interface By Example
 This will be called by cron, passing in data from the row that was removed (remember that time is not needed here, as the posted time is set automatically when the message is posted):
+
 `curl --data "username=Curl&message=I'm posting a scheduled message!" localhost/postScheduledMessage.php`
 
 This will be called by the main server to schedule a message:
+
 `curl --data "username=Curl&message=I'm scheduling a message!&time=2014-08-01 13:30:00" localhost/scheduleMessage.php`
 

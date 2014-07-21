@@ -6,6 +6,14 @@
     <link rel="stylesheet" type="text/css" href="static/css/style.css">
 </head>
 <body>
-<p>This is psched-dispatcher-1, working for psched-main-1</p>
+<div class="content">
+    <div class="feed">
+        <h3 class="compose-header">Scheduled Messages</h3>
+<?php
+require 'components/scheduledGrabber.php';
+scheduledGrabber::refresh();
+?>
+    </div>
+</div>
 </body>
 </html>

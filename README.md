@@ -16,9 +16,9 @@ When a scheduled message is posted, it is removed from the scheduling database. 
 This could be scaled further by having multiple buffers of different lengths, and having parallel buffers for smaller lengths
 
 ## Backend Interface By Example
-This will be called by cron, passing in data from the row that was removed (remember that time is not needed here, as the posted time is set automatically when the message is posted):
+This will be called by cron, and searches for any messages ready to be posted, then posts them:
 
-`curl --data "username=Curl&message=I'm posting a scheduled message!" localhost/postScheduledMessage.php`
+`curl localhost/cron/checkScheduledMessages.php`
 
 This will be called by the main server to schedule a message:
 

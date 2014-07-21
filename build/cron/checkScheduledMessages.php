@@ -2,7 +2,6 @@
 // POST message=... username=... time=...
 
 $json = array();
-$json["externalResult"] = array();
 
 $mysqli = new mysqli("localhost", "psched-poster", "psched4brandon", "psched");
 if ($mysqli->connect_errno) {
@@ -10,6 +9,7 @@ if ($mysqli->connect_errno) {
     $json["result"] = "Failure";
 } else {
     $result = $mysqli->query("SELECT post_id,poster_name,message FROM scheduled WHERE scheduled_time <= NOW()");
+    $json["externalResult"] = array();
 
     if ($result) {
         while ($row = $result->fetch_assoc()) {
